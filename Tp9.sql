@@ -41,8 +41,8 @@ WHERE e.dateNais>DR.dateNais
 --b)
 SELECT nomEmp||" "||prnmEmp AS "Employé",
 	   qualif AS "Qualification"
-FROM BLANCHE.employé e,
-	 BLANCHE.employé DR
-WHERE e.dateNais>DR.dateNais
-	  AND upper(DR.nomEmp)='DAUTEL'
-	  AND upper(DR.prnmEmp)='RICHARD'
+FROM BLANCHE.employé
+WHERE e.dateNais>(SELECT dateNais
+				  FROM BLANCHE.employé
+				  WHERE upper(nomEmp)='DAUTEL'
+	  			  AND upper(prnmEmp)='RICHARD')
