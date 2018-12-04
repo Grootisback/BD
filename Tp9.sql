@@ -46,3 +46,4 @@ WHERE e.dateNais>(SELECT dateNais
 				  FROM BLANCHE.employé
 				  WHERE upper(nomEmp)='DAUTEL'
 	  			  AND upper(prnmEmp)='RICHARD')
+
